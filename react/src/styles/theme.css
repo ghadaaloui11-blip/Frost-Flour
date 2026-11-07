@@ -1,0 +1,98 @@
+/* Frost & Flour — soft pastel bakery theme (same palette as Documentation/prompt.txt) */
+:root {
+  --pink: #f7a8c8;
+  --pink-strong: #ff8fbf;
+  --blush: #ffe4ef;
+  --cream: #fff8f1;
+  --white: #ffffff;
+  --lavender: #d9c7f5;
+  --mint: #bdecd9;
+  --baby-blue: #bfe3f8;
+  --lemon: #fff1b8;
+  --peach: #ffd3b5;
+  --coral: #f9a8a8;
+  --chocolate: #5b3a4a;
+  --muted: #9c7f8c;
+
+  --radius: 24px;
+  --shadow: 0 8px 24px rgba(247, 168, 200, 0.25);
+  --font-title: 'Fredoka', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--chocolate);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 { font-family: var(--font-title); font-weight: 600; }
+a { color: inherit; text-decoration: none; }
+.muted { color: var(--muted); }
+.price { font-weight: 800; }
+
+/* ---- Buttons */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  background: var(--pink);
+  color: var(--white);
+  font: 600 1rem var(--font-body);
+  cursor: pointer;
+}
+.btn:hover { background: var(--pink-strong); }
+.btn--ghost { background: var(--white); color: var(--chocolate); border: 2px solid var(--pink); }
+.btn--ghost:hover { background: var(--blush); }
+.btn--round { width: 2.4rem; height: 2.4rem; padding: 0; font-size: 1.4rem; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---- Cards */
+.card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; }
+.placeholder { border: 2px dashed var(--pink); text-align: center; color: var(--muted); }
+
+/* ---- Status badges */
+.badge { display: inline-block; padding: 0.2rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; text-transform: capitalize; }
+.badge--pending { background: var(--lemon); }
+.badge--confirmed { background: var(--baby-blue); }
+.badge--in_preparation { background: var(--peach); }
+.badge--completed, .badge--paid { background: var(--mint); }
+.badge--cancelled, .badge--rejected, .badge--failed { background: var(--coral); }
+.badge--refunded { background: var(--lavender); }
+
+/* ---- Client layout */
+.navbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1rem 2rem; background: var(--blush);
+  border-bottom: 6px dotted var(--pink); /* simple "icing" edge */
+}
+.navbar__links, .navbar__actions { display: flex; align-items: center; gap: 1.2rem; }
+.navbar a.active { color: var(--pink-strong); font-weight: 800; }
+.logo { font-family: var(--font-title); font-size: 1.5rem; font-weight: 600; }
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+.footer { text-align: center; padding: 2rem; background: var(--blush); color: var(--muted); }
+
+/* ---- Agent layout */
+.agent-layout { display: flex; min-height: 100vh; }
+.sidebar { width: 240px; background: var(--lavender); padding: 1.5rem; display: flex; flex-direction: column; gap: 2rem; }
+.sidebar nav { display: flex; flex-direction: column; gap: 0.8rem; flex: 1; }
+.sidebar a.active { font-weight: 800; color: var(--white); }
+.agent-main { flex: 1; padding: 2rem; }
+
+/* ---- Pages and product cards */
+.page--center { text-align: center; padding: 4rem 1rem; }
+.page-loading { text-align: center; padding: 3rem; }
+.product-card { padding: 0; overflow: hidden; }
+.product-card__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--blush); }
+.product-card__body { padding: 1rem 1.2rem; }
+.product-card__footer { display: flex; justify-content: space-between; align-items: center; }
+
+@media (max-width: 700px) {
+  .navbar { flex-wrap: wrap; padding: 1rem; }
+  .agent-layout { flex-direction: column; }
+  .sidebar { width: 100%; }
+}

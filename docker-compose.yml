@@ -1,0 +1,16 @@
+# Local MongoDB for development.
+# Start:  docker compose up -d      Stop:  docker compose stop
+# Data is kept in the "frostflour-mongo-data" volume between restarts.
+services:
+  mongo:
+    image: mongo:8
+    container_name: frostflour-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
+    name: frostflour-mongo-data
