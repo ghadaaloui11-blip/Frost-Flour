@@ -14,7 +14,7 @@ export default function AgentLayout() {
   return (
     <div className="agent-layout">
       <aside className="sidebar">
-        <div className="logo">🧁 Frost &amp; Flour</div>
+        <div className="logo"><i className="bi bi-cake2-fill"></i> Frost &amp; Flour</div>
         <nav>
           <NavLink to="/agent/orders">Orders</NavLink>
           <NavLink to="/agent/products">Products</NavLink>

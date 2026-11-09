@@ -20,7 +20,14 @@ async function register(req, res) {
 //        if (!user || !(await user.comparePassword(password))) throw new ApiError(401, 'Wrong email or password')
 //        const token = signToken(user); setAuthCookie(res, token); res.json({ user, token })
 async function login(req, res) {
-  throw notImplemented('US-02');
+  const { email, password } = req.body;
+  const user = await User.findOne({ email }).select('+password');
+  if (!user || !(await user.comparePassword(password))) {
+    throw new ApiError(401, 'Wrong email or password');
+  }
+  const token = signToken(user);
+  setAuthCookie(res, token);
+  res.json({ user, token });
 }
 
 // POST /api/auth/logout — US-03: delete the cookie (an API client just forgets its token)

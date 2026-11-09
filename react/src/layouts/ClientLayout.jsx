@@ -14,7 +14,7 @@ export default function ClientLayout() {
   return (
     <div className="client-layout">
       <header className="navbar">
-        <Link to="/" className="logo">🧁 Frost &amp; Flour</Link>
+        <Link to="/" className="logo"><i className="bi bi-cake2-fill"></i> Frost &amp; Flour</Link>
         <nav className="navbar__links">
           <NavLink to="/">Catalog</NavLink>
           {user && <NavLink to="/orders">My orders</NavLink>}
@@ -22,7 +22,7 @@ export default function ClientLayout() {
         <div className="navbar__actions">
           {user ? (
             <>
-              <NavLink to="/cart" aria-label="Cart">🛒</NavLink>
+              <NavLink to="/cart" aria-label="Cart"><i className="bi bi-cart3"></i></NavLink>
               <NavLink to="/profile">{user.firstName}</NavLink>
               <button className="btn btn--ghost" onClick={handleLogout}>Log out</button>
             </>
